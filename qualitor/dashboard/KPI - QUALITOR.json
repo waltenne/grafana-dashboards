@@ -1,0 +1,1256 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 64,
+  "panels": [
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 6,
+      "panels": [],
+      "title": "PERIODO CONSULTA ${__from:date:YYYY-MM-DD} 00:00:00 ATÈ ${__to:date:YYYY-MM-DD} 23:59:59",
+      "type": "row"
+    },
+    {
+      "datasource": "Qualitor PROD",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "dark-green",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 5,
+        "x": 0,
+        "y": 1
+      },
+      "id": 4,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.0",
+      "targets": [
+        {
+          "alias": "",
+          "format": "table",
+          "rawSql": "select ISNULL(SUM(CASE WHEN\nhc.cdalternativa=1 or\nhc.cdalternativa=5 or\nhc.cdalternativa=2 or\nhc.cdalternativa=3 THEN 1 END),0) as \"Quantidade\"\nfrom ps_resposta hch\nINNER JOIN ps_respostaalternativa hc ON hch.cdresposta = hc.cdresposta\nwhere dtresposta BETWEEN '${__from:date:YYYY-MM-DD} 00:00:00' and '${__to:date:YYYY-MM-DD} 23:59:59' and cdchamado is not null",
+          "refId": "A"
+        }
+      ],
+      "title": "AVALIADOS",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "Qualitor PROD",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "dark-red",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 5,
+        "y": 1
+      },
+      "id": 7,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.0",
+      "targets": [
+        {
+          "alias": "",
+          "format": "table",
+          "rawSql": "select ((select COUNT(cdchamado)\nfrom hd_chamado\nwhere dttermino BETWEEN '${__from:date:YYYY-MM-DD} 00:00:00' and '${__to:date:YYYY-MM-DD} 23:59:59'\nand (cdsituacao = '7' or cdsituacao = '5')) - ISNULL(SUM(CASE WHEN\nhc.cdalternativa=1 or\nhc.cdalternativa=5 or\nhc.cdalternativa=2 or\nhc.cdalternativa=3 THEN 1 END),0))\nfrom ps_resposta hch\nINNER JOIN ps_respostaalternativa hc ON hch.cdresposta = hc.cdresposta\nwhere dtresposta BETWEEN '${__from:date:YYYY-MM-DD} 00:00:00' and '${__to:date:YYYY-MM-DD} 23:59:59'\nand cdchamado is not null",
+          "refId": "A"
+        }
+      ],
+      "title": "NÃO AVALIADOS",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "Qualitor PROD",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "dark-green",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 9,
+        "y": 1
+      },
+      "id": 9,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.0",
+      "targets": [
+        {
+          "alias": "",
+          "format": "table",
+          "rawSql": "select ISNULL(SUM(CASE WHEN\nhc.cdalternativa=1 or\nhc.cdalternativa=5 or\nhc.cdalternativa=2 or\nhc.cdalternativa=3 THEN 1 END),0) as \"Quantidade\"\nfrom ps_resposta hch\nINNER JOIN ps_respostaalternativa hc ON hch.cdresposta = hc.cdresposta\nwhere hch.dtresposta BETWEEN '${__from:date:YYYY-MM-DD} 00:00:00' and '${__to:date:YYYY-MM-DD} 23:59:59' \nand hch.cdatendimento is not null",
+          "refId": "A"
+        }
+      ],
+      "title": "[CHAT] AVALIADOS",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "Qualitor PROD",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "dark-red",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 13,
+        "y": 1
+      },
+      "id": 8,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.0",
+      "targets": [
+        {
+          "alias": "",
+          "format": "table",
+          "rawSql": "select (count(*) - (select ISNULL(SUM(CASE WHEN\nhc.cdalternativa=1 or\nhc.cdalternativa=5 or\nhc.cdalternativa=2 or\nhc.cdalternativa=3 THEN 1 END),0) as \"Quantidade\"\nfrom ps_resposta hch\nINNER JOIN ps_respostaalternativa hc ON hch.cdresposta = hc.cdresposta\nwhere hch.dtresposta BETWEEN '${__from:date:YYYY-MM-DD} 00:00:00' and '${__to:date:YYYY-MM-DD} 23:59:59'\nand hch.cdatendimento is not null))\nfrom hd_sessaoatendimento\nwhere dtresposta BETWEEN '${__from:date:YYYY-MM-DD} 00:00:00' and '${__to:date:YYYY-MM-DD} 23:59:59'",
+          "refId": "A"
+        }
+      ],
+      "title": "[CHAT] NÃO AVALIADOS",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "Qualitor PROD",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "dark-purple",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 17,
+        "y": 1
+      },
+      "id": 16,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.0",
+      "targets": [
+        {
+          "alias": "",
+          "format": "table",
+          "rawSql": "select count(distinct(cham.cdchamado))\nfrom hd_chamado cham \njoin hd_situacao hs on(hs.cdsituacao = cham.cdsituacao)\njoin hd_localidade loc on(loc.cdlocalidade = cham.cdlocalidade) \njoin ad_usuario usu on (usu.cdusuario=cham.cdresponsavel) \njoin hd_acompanhamento hda on (hda.cdchamado=cham.cdchamado) \nwhere 1=1\nand cham.dtchamado BETWEEN '${__from:date:YYYY-MM-DD} 00:00:00' and '${__to:date:YYYY-MM-DD} 23:59:59'\nand hs.cdsituacao = 7\t",
+          "refId": "A"
+        }
+      ],
+      "title": "ENCERRADOS ",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "Qualitor PROD",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "dark-orange",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 20,
+        "y": 1
+      },
+      "id": 15,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.0",
+      "targets": [
+        {
+          "alias": "",
+          "format": "table",
+          "rawSql": "select count(distinct(cham.cdchamado))\nfrom hd_chamado cham \njoin hd_situacao hs on(hs.cdsituacao = cham.cdsituacao)\njoin hd_localidade loc on(loc.cdlocalidade = cham.cdlocalidade) \njoin ad_usuario usu on (usu.cdusuario=cham.cdresponsavel) \njoin hd_acompanhamento hda on (hda.cdchamado=cham.cdchamado) \nwhere 1=1\nand cham.dtchamado BETWEEN '${__from:date:YYYY-MM-DD} 00:00:00' and '${__to:date:YYYY-MM-DD} 23:59:59'\nand hs.cdsituacao = 8",
+          "refId": "A"
+        }
+      ],
+      "title": "CANCELADOS",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "Qualitor PROD",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 8,
+        "x": 0,
+        "y": 4
+      },
+      "id": 19,
+      "options": {
+        "displayLabels": [],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "values": [
+            "value"
+          ]
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "text": {}
+      },
+      "pluginVersion": "7.5.0",
+      "targets": [
+        {
+          "alias": "",
+          "format": "time_series",
+          "rawSql": "select convert(date, getdate()) as time, \nhdo.nmorigem,\ncount(cham.cdchamado)\nFROM hd_chamado cham\njoin hd_origem hdo on(hdo.cdorigem = cham.cdorigem)\nWHERE 1=1\nAND dttermino BETWEEN '${__from:date:YYYY-MM-DD} 00:00:00' and '${__to:date:YYYY-MM-DD} 23:59:59'\ngroup by hdo.nmorigem\n",
+          "refId": "A"
+        }
+      ],
+      "title": "CHAMADOS POR ORIGEM",
+      "transparent": true,
+      "type": "piechart"
+    },
+    {
+      "datasource": "Qualitor PROD",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 7,
+        "x": 8,
+        "y": 4
+      },
+      "id": 18,
+      "options": {
+        "displayLabels": [],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "values": [
+            "value"
+          ]
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "text": {}
+      },
+      "pluginVersion": "7.5.0",
+      "targets": [
+        {
+          "alias": "",
+          "format": "time_series",
+          "rawSql": "select convert(date, getdate()) as time, \ncount(distinct(cham.cdchamado)) as value,\nloc.nmlocalidade as metric\nfrom hd_chamado cham \njoin hd_situacao hs on(hs.cdsituacao = cham.cdsituacao)\njoin hd_localidade loc on(loc.cdlocalidade = cham.cdlocalidade) \njoin ad_usuario usu on (usu.cdusuario=cham.cdresponsavel) \njoin hd_acompanhamento hda on (hda.cdchamado=cham.cdchamado) \nwhere 1=1\nand cham.dtchamado between '${__from:date:YYYY-MM-DD} 00:00:00' and '${__to:date:YYYY-MM-DD} 23:59:59'\ngroup by loc.nmlocalidade",
+          "refId": "A"
+        }
+      ],
+      "title": "CHAMADOS POR LOCALIDADE",
+      "transparent": true,
+      "type": "piechart"
+    },
+    {
+      "datasource": "Qualitor PROD",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 9,
+        "x": 15,
+        "y": 4
+      },
+      "id": 20,
+      "options": {
+        "displayLabels": [],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "values": [
+            "value"
+          ]
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "text": {}
+      },
+      "pluginVersion": "7.5.0",
+      "targets": [
+        {
+          "alias": "",
+          "format": "time_series",
+          "rawSql": "select convert(date, getdate()) as time, \ncount(distinct(cham.cdchamado)) as value,\nhs.nmsituacao as metric\nfrom hd_chamado cham \njoin hd_situacao hs on(hs.cdsituacao = cham.cdsituacao)\njoin hd_localidade loc on(loc.cdlocalidade = cham.cdlocalidade) \njoin ad_usuario usu on (usu.cdusuario=cham.cdresponsavel) \njoin hd_acompanhamento hda on (hda.cdchamado=cham.cdchamado) \nwhere 1=1\nand cham.dtchamado between '${__from:date:YYYY-MM-DD} 00:00:00' and '${__to:date:YYYY-MM-DD} 23:59:59'\ngroup by hs.nmsituacao",
+          "refId": "A"
+        }
+      ],
+      "title": "CHAMADOS POR STATUS",
+      "transparent": true,
+      "type": "piechart"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Qualitor PROD",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 4,
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 15
+      },
+      "hiddenSeries": false,
+      "id": 11,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": false
+      },
+      "percentage": false,
+      "pluginVersion": "7.5.0",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "",
+          "format": "table",
+          "rawSql": "SELECT abertos.data as time,\n       encerrados.data as time,\n       ISNULL(abertos.\"data\", encerrados.\"data\"), ISNULL(\"abertos\",0) as \"abertos\", ISNULL(\"encerrados\",0) as \"encerrados\"\nFROM\n(SELECT CONVERT(date,dtchamado) as \"data\", count(cdchamado) as \"abertos\"\nFROM hd_chamado\nWHERE dtchamado between '${__from:date:YYYY-MM-DD} 00:00:00' and '${__to:date:YYYY-MM-DD} 23:59:59'\nGROUP BY CONVERT(date,dtchamado)) as abertos\nFULL OUTER JOIN\n(SELECT CONVERT(date,dttermino) as \"data\", count(cdchamado) as \"encerrados\"\nFROM hd_chamado\nWHERE dttermino between '${__from:date:YYYY-MM-DD} 00:00:00' and '${__to:date:YYYY-MM-DD} 23:59:59'\nGROUP BY CONVERT(date,dttermino)) as encerrados\nON abertos.\"data\"=encerrados.\"data\"",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "ABERTOS X ENCERRADOS",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:772",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        },
+        {
+          "$$hashKey": "object:773",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "datasource": "Qualitor PROD",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "align": "left",
+            "displayMode": "color-text",
+            "filterable": true
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Ótimo"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 78
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Bom"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 66
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Regular"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 82
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Ruim"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 73
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Total"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 66
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Colaborador"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 210
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "rgb(252, 252, 252)",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 16,
+        "w": 11,
+        "x": 0,
+        "y": 22
+      },
+      "id": 3,
+      "options": {
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "7.5.0",
+      "targets": [
+        {
+          "alias": "",
+          "format": "table",
+          "rawSql": "select\nnmusuario as \"Colaborador\",\nISNULL(SUM(CASE WHEN hc.cdalternativa=1 THEN 1 END),0) as \"Ótimo\",\nISNULL(SUM(CASE WHEN hc.cdalternativa=5 THEN 1 END),0) as \"Bom\",\nISNULL(SUM(CASE WHEN hc.cdalternativa=2 THEN 1 END),0) as \"Regular\",\nISNULL(SUM(CASE WHEN hc.cdalternativa=3 THEN 1 END),0) as \"Ruim\",\nISNULL(SUM(CASE WHEN hc.cdalternativa in (1, 2, 3, 5) THEN 1 END),0) as \"Total\"\nfrom ps_resposta hch\nINNER JOIN hd_chamado hdc ON hch.cdchamado = hdc.cdchamado\nINNER JOIN ad_usuario adu ON adu.cdusuario = hdc.cdresponsavel\nINNER JOIN ps_respostaalternativa hc ON hch.cdresposta = hc.cdresposta\nwhere hch.dtresposta BETWEEN '${__from:date:YYYY-MM-DD} 00:00:00' and '${__to:date:YYYY-MM-DD} 23:59:59'\nand hch.cdchamado is not null\ngroup by nmusuario\norder by \"Ótimo\" desc, \"Bom\" desc, \"Regular\" desc, \"Colaborador\"",
+          "refId": "A"
+        }
+      ],
+      "title": "AVALIAÇÃO DETALHADA CHAMADOS",
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "datasource": "Qualitor PROD",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "align": "left",
+            "displayMode": "color-text",
+            "filterable": true
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Ótimo"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 78
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Bom"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 66
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Regular"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 82
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Ruim"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 73
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Total"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 74
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Colaborador"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 309
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "rgb(255, 255, 255)",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 16,
+        "w": 13,
+        "x": 11,
+        "y": 22
+      },
+      "id": 2,
+      "options": {
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "7.5.0",
+      "targets": [
+        {
+          "alias": "",
+          "format": "table",
+          "rawSql": "select\nnmusuario as \"Colaborador\",\nISNULL(SUM(CASE WHEN hc.cdalternativa=1 THEN 1 END),0) as \"Ótimo\",\nISNULL(SUM(CASE WHEN hc.cdalternativa=5 THEN 1 END),0) as \"Bom\",\nISNULL(SUM(CASE WHEN hc.cdalternativa=2 THEN 1 END),0) as \"Regular\",\nISNULL(SUM(CASE WHEN hc.cdalternativa=3 THEN 1 END),0) as \"Ruim\",\nISNULL(SUM(CASE WHEN hc.cdalternativa in (1, 2, 3, 5) THEN 1 END),0) as \"Total\"\nfrom ps_resposta hch\nINNER JOIN hd_sessaoatendimento hds ON hch.cdatendimento = hds.cdatendimento\nINNER JOIN ad_usuario adu ON adu.cdusuario = hds.cdatendente\nINNER JOIN ps_respostaalternativa hc ON hch.cdresposta = hc.cdresposta\nwhere hch.dtresposta  between '${__from:date:YYYY-MM-DD} 00:00:00' and '${__to:date:YYYY-MM-DD} 23:59:59'\nand hch.cdatendimento is not null\ngroup by nmusuario\norder by \"Ótimo\" desc, \"Bom\" desc, \"Regular\" desc, \"Colaborador\"",
+          "refId": "A"
+        }
+      ],
+      "title": "[CHAT] AVALIAÇÃO DETALHADA CHAMADOS ",
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "datasource": "Qualitor PROD",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "align": "left",
+            "displayMode": "color-text",
+            "filterable": true
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Quantidade"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 114
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-green",
+                  "mode": "continuous-GrYlRd"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Porcentagem"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percent"
+              },
+              {
+                "id": "custom.width",
+                "value": 124
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "continuous-GrYlRd"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Cliente"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 1034
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "rgb(255, 255, 255)",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 24,
+        "x": 0,
+        "y": 38
+      },
+      "id": 10,
+      "options": {
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "Quantidade"
+          }
+        ]
+      },
+      "pluginVersion": "7.5.0",
+      "targets": [
+        {
+          "alias": "",
+          "format": "table",
+          "rawSql": "select TOP 10 ad_cliente.nmcliente as \"Cliente\", cast(COUNT(hdc.cdcliente) as integer) as \"Quantidade\",\nROUND(cast(COUNT(hdc.cdcliente) as float) /\nCAST((select cast(COUNT(hdc.cdcliente) as integer)\nfrom hd_chamado hdc\nwhere (hdc.cdsituacao = '7' or hdc.cdsituacao = '5') and hdc.dttermino between '${__from:date:YYYY-MM-DD} 00:00:00' and '${__to:date:YYYY-MM-DD} 23:59:59') as float)*100, 2) as \"Porcentagem\"\nfrom hd_chamado hdc\nINNER JOIN ad_cliente ON hdc.cdcliente = ad_cliente.cdcliente\nwhere (hdc.cdsituacao = '7' or hdc.cdsituacao = '5') and hdc.dttermino between '${__from:date:YYYY-MM-DD} 00:00:00' and '${__to:date:YYYY-MM-DD} 23:59:59'\ngroup by ad_cliente.nmcliente\norder by \"Quantidade\" desc",
+          "refId": "A"
+        }
+      ],
+      "title": "RANK TOP 10 CHAMADOS EMPRESAS",
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "datasource": "Qualitor PROD",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "align": "left",
+            "displayMode": "color-text",
+            "filterable": true
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CATEGORIA"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 114
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "rgb(255, 255, 255)",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "QUANTIDADE"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percent"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "continuous-GrYlRd"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Cliente"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 338
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CATEGORIA"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 1141
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "quantidade"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 113
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "QUANTIDADE"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 124
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 16,
+        "w": 24,
+        "x": 0,
+        "y": 50
+      },
+      "id": 12,
+      "options": {
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "7.5.0",
+      "targets": [
+        {
+          "alias": "",
+          "format": "table",
+          "rawSql": "SELECT nmcategoria + ' > ' + t2.categoria AS CATEGORIA, t2.QUANTIDADE FROM\n(SELECT nmcategoria + ' > ' + t1.categoria AS CATEGORIA, hd_categoria.cdcategoriasuperior, t1.quantidade FROM\n(SELECT TOP 15 nmcategoria as CATEGORIA, cdcategoriasuperior, COUNT(cdchamado) as QUANTIDADE\nFROM hd_chamado\nINNER JOIN hd_categoria ON hd_categoria.cdcategoria = hd_chamado.cdcategoria\nWHERE (cdsituacao = '7' OR cdsituacao = '5')\nAND dttermino between '${__from:date:YYYY-MM-DD} 00:00:00' and '${__to:date:YYYY-MM-DD} 23:59:59'\nGROUP BY hd_categoria.nmcategoria, hd_categoria.cdcategoriasuperior\nORDER BY QUANTIDADE desc) AS t1\nINNER JOIN hd_categoria ON hd_categoria.cdcategoria = t1.cdcategoriasuperior) AS t2\nINNER JOIN hd_categoria ON hd_categoria.cdcategoria = t2.cdcategoriasuperior",
+          "refId": "A"
+        }
+      ],
+      "title": "CHAMADOS X CATEGORIA",
+      "transparent": true,
+      "type": "table"
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 27,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-30d",
+    "to": "now"
+  },
+  "timepicker": {
+    "hidden": false
+  },
+  "timezone": "",
+  "title": "KPI - QUALITOR",
+  "uid": "HpS2k0vnk",
+  "version": 10
+}
