@@ -1,62 +1,132 @@
 # QUALITOR DASHBOARD
 
+<div> 
+  <a href="https://github.com/waltenne" target="_blank"><img src="https://img.shields.io/badge/Grafana-F6DDCC?style=for-the-badge&logo=Grafana&logoColor=E67E22" target="_blank"></a> 
+</div>
 
-Este Dashboard realiza a consulta no banco de dados do Qualitor para retornar alguns valores estratégicos utilizando o filtro de data do Grafana.
+Este **Dashboard** realiza a consulta no banco de dados do Qualitor para retornar alguns valores estratégicos utilizando o filtro de data do Grafana.
 
-This dashboard performs database query into Qualitor Data Base to return strategic data using time filter of grafana.
+This **Dashboard** performs database query into Qualitor Data Base to return strategic data using time filter of Grafana.
 
-1)
-    Esses paineis retornam infornações básicas de:
+#### A Versão 2.0 do dashboard foi separado nas seguintes ROWS para organização
 
-- Quantidade de Tickets Avaliados
-- Quantidade de Tickets Não Avaliados
-- Quantidade de Tickets CHAT Avaliados
-- Quantidade de Tickets CHAT Não Avaliados
-- Quantidade de Tickets Encerrados
-- Quantidade de Tickets Cancelados
+* [**GERAL**](#GENERAL/GERAL)
+* [**IMPLANTACAO**](#IMPLEMENTATION/IMPLEMENTAÇÃO)
+* [**AVALIAÇÔES**](#RATING/AVALIAÇÔES)
+* [**CATEGORIAS**](#CATEGORY/CATEGORIAS)
+* [**RANKING**](#RANKING)
+* [**SUSPENSOS**](#RANKING/SUSPENDED)
 
-    These panels return basic information on:
+#### Version 2.0 of the dashboard has been separated into the following ROWS for organization
 
-- Number of Evaluated Tickets
-- Number of Unrated Tickets
-- Number of Rated CHAT Tickets
-- Number of Unrated CHAT Tickets
-- Number of Closed Tickets
-- Number of Canceled Tickets
+* [**GENERAL**](#GENERAL/GERAL)
+* [**IMPLEMENTATION**](#IMPLEMENTATION/IMPLEMENTAÇÃO)
+* [**RATING**](#RATING/AVALIAÇÔES)
+* [**CATEGORY**](#CATEGORY/CATEGORIAS)
+* [**RANKING**](#RANKING)
+* [**SUSPENDED**](#RANKING/SUSPENDED)
+## **Visão Geral / General View**
 
-![Type](screenshots/chamados_tipo.png)
+![main](./screenshots/main.png)
 
-2)
-    Esses paineis retornam infornações básicas de:
+### **GENERAL / GERAL**
 
-- Quantidade de Tickets Abertos x Encerrados
-- Quantidade de Avaliação dos Tickets ou Chat Tickets por Colaborador
+ Será apresentados os dados atuais por quantidade de Tickets nas seguintes categorias:
 
-    These panels return basic information on:
+  * EM ATENDIMENTO
+  * CANCELADOS
+  * ATRASADOS
+  * SUSPENSOS
+  * AGUARDANDO ATENDIMENTO
+  * ENCERRADOS
+  * ABERTOS COM ITERAÇÂO
 
-- Number of Open x Closed Tickets
-- Quantity of Ticket or Chat Ticket Evaluation by Employee
+Will present the current data by number of Tickets in the following categories:
 
-![Tickets](screenshots/abertosxencerrados_avaliacao.png)
+  * IN SERVICE
+  * CANCELED
+  * DELAYED
+  * SUSPENDED
+  * WAITING FOR SERVICE
+  * CLOSED
+  * OPEN WITH ITERATION
 
-3)
-    Esses paineis retornam infornações básicas de:
+![main](./screenshots/general.png)
 
-- Quantidade de Ticket x Empresa
+### **IMPLEMENTATION / IMPLANTAÇÂO**
 
-    These panels return basic information on:
+ Será apresentados os dados das implantações divididos em:
 
-- Number of Ticket x Company
+  * ENCERRADOS
+  * CATEGORIA
+  * EM ATENDIMENTO
 
-![Tickets](screenshots/top10empresas.png)
+Current deployment data will be presented divided into:
 
-4)
-    Esses paineis retornam infornações básicas de:
+  * CLOSED
+  * CATEGORY
+  * IN SERVICE
 
-- Quantidade de Ticket x Categoria
+![main](./screenshots/implementation.png)
 
-    These panels return basic information on:
+### **RATING / AVALIAÇÔES**
 
-- Number of Ticket x Category
+ Será apresentados os das avaliações divididos em:
 
-![Tickets](screenshots/chamadosVScategoria.png)
+ Tanto como para tickets normais e para abertos via chat e seu detalhamento por quantidade divididos pela sua categoria
+
+  * AVALIADOS
+  * NÂO AVALIADOS
+
+Current evaluation data will be presented, divided into:
+
+ As for normal tickets and for open tickets via chat and their breakdown by quantity divided by their category
+
+  * ASSESSED
+  * NOT ASSESSED
+
+![main](./screenshots/rating.png)
+
+
+### **CATEGORY / CATEGORIAS**
+
+ Será apresentados os dados das categorias divididos em:
+
+ Tanto como para tickets normais e para abertos via chat e seu detalhamento por quantidade divididos pela sua categoria
+
+  * AVALIADOS
+  * NÂO AVALIADOS
+
+Current category data will be presented, divided into:
+
+ As for normal tickets and for open tickets via chat and their breakdown by quantity divided by their category
+
+  * ASSESSED
+  * NOT ASSESSED
+
+![main](./screenshots/category-1.png)
+![main](./screenshots/category-2.png)
+
+### **RANKING**
+
+ Será apresentados os dados de ranking:
+
+  * TOP 10 EMPRESAS POR QUANTIDADE
+  * TOP CATEGORIAS DE TICKET
+
+Ranking data will be displayed:
+
+  * TOP 10 COMPANIES BY AMOUNT
+  * TOP TICKET CATEGORIES
+
+
+![main](./screenshots/ranking.png)
+
+### **SUSPENDED / SUSPENSOS**
+
+ Será apresentados os dados dos chamados suspensos em uma tabela, pegando o número da atividade (REDMINE) inserida no titulo do chamado começando com #
+
+The suspended ticket data will be presented in a table, taking the activity number (REDMINE) inserted in the ticket title starting with #
+
+
+![main](./screenshots/suspended.png)
