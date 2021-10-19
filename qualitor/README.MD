@@ -50,7 +50,7 @@ This **Dashboard** performs database query into Qualitor Data Base to return str
 
 ![main](./screenshots/main.png)
 
-### **GENERAL/GERAL**
+### <a name="general-geral">GENERAL/GERAL</a>
 
  Será apresentados os dados atuais por quantidade de Tickets nas seguintes categorias:
  
@@ -82,7 +82,7 @@ This **Dashboard** performs database query into Qualitor Data Base to return str
 
 ![main](./screenshots/general.png)
 
-### **IMPLEMENTATION / IMPLANTAÇÂO**
+### <a name="implementation-implantação">IMPLEMENTATION/IMPLANTAÇÂO</a>
 
  Esses paineis retornam infornações básicas de:
 
@@ -104,7 +104,7 @@ Current deployment data will be presented divided into:
 
 ![main](./screenshots/implementation.png)
 
-### **RATING / AVALIAÇÔES**
+### <a name="rating-avaliações">RATING/AVALIAÇÔES</a>
 
  Será apresentados os das avaliações divididos em:
 
@@ -123,7 +123,7 @@ Current evaluation data will be presented, divided into:
 ![main](./screenshots/rating.png)
 
 
-### **CATEGORY / CATEGORIAS**
+### <a name="category-categoria">CATEGORY/CATEGORIAS</a>
 
  Será apresentados os dados das categorias divididos em:
 
@@ -142,7 +142,7 @@ Current category data will be presented, divided into:
 ![main](./screenshots/category-1.png)
 ![main](./screenshots/category-2.png)
 
-### **RANKING**
+### <a name="ranking">RANKING</a>
 
  Será apresentados os dados de ranking:
 
@@ -157,7 +157,7 @@ Ranking data will be displayed:
 
 ![main](./screenshots/ranking.png)
 
-### **SUSPENDED / SUSPENSOS**
+### <a name="suspended-suspensos">SUSPENDED/SUSPENSOS</a>
 
  Será apresentados os dados dos chamados suspensos em uma tabela, pegando o número da atividade (REDMINE) inserida no titulo do chamado começando com #
 
