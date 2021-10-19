@@ -27,7 +27,7 @@ This **Dashboard** performs database query into Qualitor Data Base to return str
 * [**SUSPENDED**](#RANKING/SUSPENDED)
 
 
-## **Visão Geral / General View**
+## <a name="general-geral"></a>**Geral/General**
 
  Esses paineis retornam infornações básicas de:
 
@@ -46,7 +46,6 @@ This **Dashboard** performs database query into Qualitor Data Base to return str
 * Number of Unrated CHAT Tickets
 * Number of Closed Tickets
 * Number of Canceled Tickets
->>>>>>> 993829673dc271adee5383a8538a19ea332c0f68
 
 ![main](./screenshots/main.png)
 
