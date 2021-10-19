@@ -50,7 +50,7 @@ This **Dashboard** performs database query into Qualitor Data Base to return str
 
 ![main](./screenshots/main.png)
 
-### <a name="GENERAL-GERAL">GENERAL/GERAL</a>
+### <a name="GENERAL">GERAL</a>
 
  Será apresentados os dados atuais por quantidade de Tickets nas seguintes categorias:
  
