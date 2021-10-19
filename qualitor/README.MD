@@ -163,4 +163,4 @@ Ranking data will be displayed:
 
 The suspended ticket data will be presented in a table, taking the activity number (REDMINE) inserted in the ticket title starting with #
 
-![main](./screenshots/suspended.png
+![main](./screenshots/suspended.png)
