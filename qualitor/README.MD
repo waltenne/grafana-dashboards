@@ -8,6 +8,7 @@ Este **Dashboard** realiza a consulta no banco de dados do Qualitor para retorna
 
 This **Dashboard** performs database query into Qualitor Data Base to return strategic data using time filter of Grafana.
 
+<<<<<<< HEAD
 #### A Versão 2.0 do dashboard foi separado nas seguintes ROWS para organização
 
 * [**GERAL**](#GENERAL/GERAL)
@@ -26,12 +27,40 @@ This **Dashboard** performs database query into Qualitor Data Base to return str
 * [**RANKING**](#RANKING)
 * [**SUSPENDED**](#RANKING/SUSPENDED)
 ## **Visão Geral / General View**
+=======
+#
+ Esses paineis retornam infornações básicas de:
+
+* Quantidade de Tickets Avaliados
+* Quantidade de Tickets Não Avaliados
+* Quantidade de Tickets CHAT Avaliados
+* Quantidade de Tickets CHAT Não Avaliados
+* Quantidade de Tickets Encerrados
+* Quantidade de Tickets Cancelados
+
+ These panels return basic information on:
+
+* Number of Evaluated Tickets
+* Number of Unrated Tickets
+* Number of Rated CHAT Tickets
+* Number of Unrated CHAT Tickets
+* Number of Closed Tickets
+* Number of Canceled Tickets
+>>>>>>> 993829673dc271adee5383a8538a19ea332c0f68
 
 ![main](./screenshots/main.png)
 
+<<<<<<< HEAD
 ### **GENERAL / GERAL**
 
  Será apresentados os dados atuais por quantidade de Tickets nas seguintes categorias:
+=======
+#
+ Esses paineis retornam infornações básicas de:
+
+* Quantidade de Tickets Abertos x Encerrados
+* Quantidade de Avaliação dos Tickets ou Chat Tickets por Colaborador
+>>>>>>> 993829673dc271adee5383a8538a19ea332c0f68
 
   * EM ATENDIMENTO
   * CANCELADOS
@@ -41,7 +70,12 @@ This **Dashboard** performs database query into Qualitor Data Base to return str
   * ENCERRADOS
   * ABERTOS COM ITERAÇÂO
 
+<<<<<<< HEAD
 Will present the current data by number of Tickets in the following categories:
+=======
+* Number of Open x Closed Tickets
+* Quantity of Ticket or Chat Ticket Evaluation by Employee
+>>>>>>> 993829673dc271adee5383a8538a19ea332c0f68
 
   * IN SERVICE
   * CANCELED
@@ -51,18 +85,30 @@ Will present the current data by number of Tickets in the following categories:
   * CLOSED
   * OPEN WITH ITERATION
 
+<<<<<<< HEAD
 ![main](./screenshots/general.png)
 
 ### **IMPLEMENTATION / IMPLANTAÇÂO**
+=======
+#
+ Esses paineis retornam infornações básicas de:
+
+* Quantidade de Ticket x Empresa
+>>>>>>> 993829673dc271adee5383a8538a19ea332c0f68
 
  Será apresentados os dados das implantações divididos em:
 
+<<<<<<< HEAD
   * ENCERRADOS
   * CATEGORIA
   * EM ATENDIMENTO
+=======
+* Number of Ticket x Company
+>>>>>>> 993829673dc271adee5383a8538a19ea332c0f68
 
 Current deployment data will be presented divided into:
 
+<<<<<<< HEAD
   * CLOSED
   * CATEGORY
   * IN SERVICE
@@ -130,3 +176,15 @@ The suspended ticket data will be presented in a table, taking the activity numb
 
 
 ![main](./screenshots/suspended.png)
+=======
+#
+ Esses paineis retornam infornações básicas de:
+
+* Quantidade de Ticket x Categoria
+
+ These panels return basic information on:
+
+* Number of Ticket x Category
+
+![Tickets](screenshots/chamadosVScategoria.png)
+>>>>>>> 993829673dc271adee5383a8538a19ea332c0f68
