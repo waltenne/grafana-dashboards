@@ -12,20 +12,20 @@ This **Dashboard** performs database query into Qualitor Data Base to return str
 
 * [**MAIN**](#MAIN)
 * [**GERAL**](#GENERAL)
-* [**IMPLANTACAO**](#IMPLEMENTATION/IMPLEMENTAÇÃO)
-* [**AVALIAÇÔES**](#RATING/AVALIAÇÔES)
-* [**CATEGORIAS**](#CATEGORY/CATEGORIAS)
+* [**IMPLANTACAO**](#IMPLEMENTATION)
+* [**AVALIAÇÔES**](#RATING)
+* [**CATEGORIAS**](#CATEGORY)
 * [**RANKING**](#RANKING)
-* [**SUSPENSOS**](#RANKING/SUSPENDED)
+* [**SUSPENSOS**](#SUSPENDED)
 
 #### Version 2.0 of the dashboard has been separated into the following ROWS for organization
 
-* [**GENERAL**](#GENERAL/GERAL)
-* [**IMPLEMENTATION**](#IMPLEMENTATION/IMPLEMENTAÇÃO)
-* [**RATING**](#RATING/AVALIAÇÔES)
-* [**CATEGORY**](#CATEGORY/CATEGORIAS)
+* [**GENERAL**](#GENERAL)
+* [**IMPLEMENTATION**](#IMPLEMENTATION)
+* [**RATING**](#RATING)
+* [**CATEGORY**](#CATEGORY)
 * [**RANKING**](#RANKING)
-* [**SUSPENDED**](#RANKING/SUSPENDED)
+* [**SUSPENDED**](#SUSPENDED)
 
 
 ## <a name="main">MAIN</a>
@@ -50,7 +50,7 @@ This **Dashboard** performs database query into Qualitor Data Base to return str
 
 ![main](./screenshots/main.png)
 
-### <a name="GENERAL">GERAL</a>
+### <a name="GENERAL">GERAL/GENERAL</a>
 
  Será apresentados os dados atuais por quantidade de Tickets nas seguintes categorias:
  
@@ -82,7 +82,7 @@ This **Dashboard** performs database query into Qualitor Data Base to return str
 
 ![main](./screenshots/general.png)
 
-### <a name="implementation-implantação">IMPLEMENTATION/IMPLANTAÇÂO</a>
+### <a name="IMPLEMENTATION">IMPLEMENTATION/IMPLANTAÇÂO</a>
 
  Esses paineis retornam infornações básicas de:
 
@@ -104,7 +104,7 @@ Current deployment data will be presented divided into:
 
 ![main](./screenshots/implementation.png)
 
-### <a name="rating-avaliações">RATING/AVALIAÇÔES</a>
+### <a name="RATING">RATING/AVALIAÇÔES</a>
 
  Será apresentados os das avaliações divididos em:
 
@@ -123,7 +123,7 @@ Current evaluation data will be presented, divided into:
 ![main](./screenshots/rating.png)
 
 
-### <a name="category-categoria">CATEGORY/CATEGORIAS</a>
+### <a name="CATEGORY">CATEGORY/CATEGORIAS</a>
 
  Será apresentados os dados das categorias divididos em:
 
@@ -142,7 +142,7 @@ Current category data will be presented, divided into:
 ![main](./screenshots/category-1.png)
 ![main](./screenshots/category-2.png)
 
-### <a name="ranking">RANKING</a>
+### <a name="RANKING">RANKING</a>
 
  Será apresentados os dados de ranking:
 
@@ -157,7 +157,7 @@ Ranking data will be displayed:
 
 ![main](./screenshots/ranking.png)
 
-### <a name="suspended-suspensos">SUSPENDED/SUSPENSOS</a>
+### <a name="SUSPENDED">SUSPENDED/SUSPENSOS</a>
 
  Será apresentados os dados dos chamados suspensos em uma tabela, pegando o número da atividade (REDMINE) inserida no titulo do chamado começando com #
 
