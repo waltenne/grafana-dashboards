@@ -10,6 +10,7 @@ This **Dashboard** performs database query into Qualitor Data Base to return str
 
 #### A Versão 2.0 do dashboard foi separado nas seguintes ROWS para organização
 
+* [**MAIN**](#MAIN)
 * [**GERAL**](#GENERAL/GERAL)
 * [**IMPLANTACAO**](#IMPLEMENTATION/IMPLEMENTAÇÃO)
 * [**AVALIAÇÔES**](#RATING/AVALIAÇÔES)
@@ -27,7 +28,7 @@ This **Dashboard** performs database query into Qualitor Data Base to return str
 * [**SUSPENDED**](#RANKING/SUSPENDED)
 
 
-## <a name="general-geral"></a>**Geral/General**
+## <a name="main">MAIN</a>
 
  Esses paineis retornam infornações básicas de:
 
