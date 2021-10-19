@@ -36,7 +36,7 @@ This **Dashboard** performs database query into Qualitor Data Base to return str
 * Quantidade de Tickets CHAT Avaliados
 * Quantidade de Tickets CHAT Não Avaliados
 * Quantidade de Tickets Encerrados
-* Quantidade de Tickets Cancelados
+* Quantidade de Tickets Canceladosname
 
  These panels return basic information on:
 
@@ -49,7 +49,7 @@ This **Dashboard** performs database query into Qualitor Data Base to return str
 
 ![main](./screenshots/main.png)
 
-### **GENERAL / GERAL**
+### **GENERAL/GERAL**
 
  Será apresentados os dados atuais por quantidade de Tickets nas seguintes categorias:
  
