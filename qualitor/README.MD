@@ -28,6 +28,7 @@ This **Dashboard** performs database query into Qualitor Data Base to return str
 
 
 ## **Visão Geral / General View**
+
  Esses paineis retornam infornações básicas de:
 
 * Quantidade de Tickets Avaliados
@@ -66,9 +67,8 @@ This **Dashboard** performs database query into Qualitor Data Base to return str
   * ENCERRADOS
   * ABERTOS COM ITERAÇÂO
 
-<<<<<<< HEAD
-Will present the current data by number of Tickets in the following categories:
-=======
+ Will present the current data by number of Tickets in the following categories:
+
 * Number of Open x Closed Tickets
 * Quantity of Ticket or Chat Ticket Evaluation by Employee
 
@@ -80,7 +80,6 @@ Will present the current data by number of Tickets in the following categories:
   * CLOSED
   * OPEN WITH ITERATION
 
-<<<<<<< HEAD
 ![main](./screenshots/general.png)
 
 ### **IMPLEMENTATION / IMPLANTAÇÂO**
@@ -164,15 +163,4 @@ Ranking data will be displayed:
 
 The suspended ticket data will be presented in a table, taking the activity number (REDMINE) inserted in the ticket title starting with #
 
-
-![main](./screenshots/suspended.png)
-
- Esses paineis retornam infornações básicas de:
-
-* Quantidade de Ticket x Categoria
-
- These panels return basic information on:
-
-* Number of Ticket x Category
-
-![Tickets](screenshots/chamados/suspended.png)
+![main](./screenshots/suspended.png
